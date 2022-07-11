@@ -4,7 +4,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import './singup.css'
 //import Form1 from './../forms/Form1'
-
+import './Navbar/Navbar.css'
+import imh1 from '../images/logomits.png'
 
 function Login() {
  const [emailaddress,setEmailaddress] = useState('')
@@ -29,7 +30,10 @@ const [data, setData] = useState({ email: "", password: "" })
 		try {
 			const url = "http://localhost:8080/api/auth";
 			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
+      // fetch("http://localhost:8080/api/auth")
+      // .then(response=>response.json())
+      console.log(data)
+			//localStorage.setItem("token", res.data);
 			window.location = "/home";
 		} catch (error) {
 			if (
@@ -41,9 +45,21 @@ const [data, setData] = useState({ email: "", password: "" })
 			}
 		}
 	}
-
+// {/* <div className='navbar'> 
+//       <a href="https://mgmits.ac.in/">
+//          <img className="logo" src={imh1}></img></a>
+//          <img className="nba" src="https://mgmits.ac.in/wp-content/themes/muthoot/images/nba.png"></img>
+//          <img className="nirf" src="https://mgmits.ac.in/wp-content/themes/muthoot/images/nirf-logo.png"></img>
+//          <img className="ariia" src="https:/mgmits.ac.in/wp-content/themes/muthoot/images/ariia_logo.jpg"></img>
+        
+//          <a href="/qqq/form-1" >
+//          <h1 className='rnc'>RESEARCH AND CONSULTANCY CELL</h1></a>
+//          </div> */}
 
     return (
+      <div>
+      
+ 
       <div className="ww">
       <form onSubmit={handleSubmit} >
        
@@ -83,14 +99,18 @@ const [data, setData] = useState({ email: "", password: "" })
           <button  type="submit" className="btn btn-primary">
             Submit
           </button>
-          
-         <p className="forgot-password text-right">
-          Forgot <a href="#">password?</a>
+          <br/>
+          <p className="forgot-password text-right">
+          <a href="/sign-up"> new user ? Sign Up</a>
         </p>
+          
+         
         </div>
         </div>
        
       </form>
+       
+       </div>
        </div>
     )
   }

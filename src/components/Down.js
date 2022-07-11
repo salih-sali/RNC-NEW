@@ -33,15 +33,15 @@ export default Down
 
 
 
-<DropdownButton 
-bsSize="small"
-alignRight
-title="choose department"
-onSelect={handleSelect}>
-        <Dropdown.Item eventKey="CSE">CSE</Dropdown.Item>
-        <Dropdown.Item eventKey="CE">CE</Dropdown.Item>
-        <Dropdown.Item eventKey="ECE">ECE</Dropdown.Item>
-        <Dropdown.Item eventKey="EEE">EEE</Dropdown.Item>
-        <Dropdown.Item eventKey="ME">ME</Dropdown.Item>
-</DropdownButton>
-<h6>Department : {dept}</h6> 
+// <DropdownButton 
+// bsSize="small"
+// alignRight
+// title="choose department"
+// onSelect={handleSelect}>
+//         <Dropdown.Item eventKey="CSE">CSE</Dropdown.Item>
+//         <Dropdown.Item eventKey="CE">CE</Dropdown.Item>
+//         <Dropdown.Item eventKey="ECE">ECE</Dropdown.Item>
+//         <Dropdown.Item eventKey="EEE">EEE</Dropdown.Item>
+//         <Dropdown.Item eventKey="ME">ME</Dropdown.Item>
+// </DropdownButton>
+// <h6>Department : {dept}</h6> 

@@ -9,6 +9,9 @@ import { Link, useNavigate } from "react-router-dom";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import './singup.css'
+import './Navbar/Navbar.css'
+import imh1 from '../images/logomits.png'
+
 
 
  
@@ -66,6 +69,19 @@ const handleSelect=(e)=>{
 }
 
     return (
+
+      <div>
+      {/* <div className='navbar'> 
+      <a href="https://mgmits.ac.in/">
+         <img className="logo" src={imh1}></img></a>
+         <img className="nba" src="https://mgmits.ac.in/wp-content/themes/muthoot/images/nba.png"></img>
+         <img className="nirf" src="https://mgmits.ac.in/wp-content/themes/muthoot/images/nirf-logo.png"></img>
+         <img className="ariia" src="https:/mgmits.ac.in/wp-content/themes/muthoot/images/ariia_logo.jpg"></img>
+        
+         <a href="/" >
+         <h1 className='rnc'>RESEARCH AND CONSULTANCY CELL</h1></a>
+         </div> */}
+
       <div className="ww">
       <form onSubmit={handleSubmit}>
         <div className="signupParentDiv">
@@ -85,11 +101,11 @@ const handleSelect=(e)=>{
         </div>
 
         <div className="mb-3">
-          <label> LaST Name</label>
+          <label> Department</label>
           <input
             type="text"
             className="form-control"
-            placeholder="enter L  name"
+            placeholder="enter Dept name"
             //value={name}
             onChange={handleChange}
             name="lastName"
@@ -142,6 +158,7 @@ const handleSelect=(e)=>{
         </p>
         </div>
       </form>
+      </div>
       </div>
     )
   

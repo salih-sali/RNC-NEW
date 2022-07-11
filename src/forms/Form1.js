@@ -3,6 +3,7 @@ import './forms.css';
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom";
 
+//funded prject
 
 function Form1() {
 
@@ -45,9 +46,10 @@ function Form1() {
 		}
 	};
 
-  //const backto =(
-    //navigate("/sign-up")
-  //)
+  const q=()=>{
+    navigate('/home',{replace:true}) 
+    
+ }
 
   return (
     
@@ -155,7 +157,7 @@ function Form1() {
         <br />
         <button  onClick={handleSub}>Submit</button>
         <br /><br />
-        <button >Cancel</button>
+        <button  onClick={q}>Cancel</button>
       
       </form>
     </div>

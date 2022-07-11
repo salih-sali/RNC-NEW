@@ -1,122 +1,160 @@
 import React, { useState } from 'react'
 import './forms.css';
+import axios from "axios"
+import { Link, useNavigate } from "react-router-dom";
 
+//event
 
 function Form4() {
 
-  const [name,setName] = useState('')
-  const [title,setTitle] = useState('')
-  const [year,setYear] = useState('')
-  const [impact,setImpact] = useState('')
-  const [govt,setGovt] = useState('')
-  const [amount,setAmount] = useState('')
+  const [data4, setData4] = useState({
+		
+		eventN: "",
+    venue: "",
+		org: "",
+		date: "",
+    time: ""
+	})
+  let eventl
+  const navigate = useNavigate();
 
-  const handleSub=(e)=>{
-    e.preventDefault()
-      console.log("name : "+name)
-      console.log("title : "+title)
-      console.log("year : "+year)
-      console.log("impact : "+impact)
-      console.log("govt or private : "+govt)
-     console.log("amount : "+amount)
-  }
+  const q=()=>{
+    navigate('/home',{replace:true}) 
+    
+ }
+	const [error, setError] = useState("");
+	
+	const handleChange = ({ currentTarget: input }) => {
+		setData4({ ...data4, [input.name]: input.value });
+	};
+
+	const handleSub = async (e) => {
+		e.preventDefault();
+		try {
+			const url = "http://localhost:8080/api/addEvent";
+			const { data: res } = await axios.post(url, data4);
+      //console.log("______"+res.data.eventN);
+      console.log("______"+res.data.eventN);
+       eventl= res.data;
+      console.log(eventl);
+			//navigate("/home");
+			console.log(res.message);
+            alert(res.message)
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+        
+				setError(error.response.data.message);
+        console.log(error.response.data.message)
+        alert(error.response.data.message) //PRINTING EROR
+			}
+		}
+	}
 
   return (
-    <div> 
-      <h1 >Publications</h1>
+    
     <div className="signupParentDiv">
-    <h3 >Enter the details of published papers only..!</h3>
+    <h3 >enter the details of event..</h3>
       <form >
-        <label>Name</label>
+        <label>Name of event</label>
         <br />
         <input style={{ width:"500px" }}
           className="input"
           type="text"
           //id="fname"
           //name="name"
-          placeholder="Enter the name of author"
-          value={name}
-            onChange={(e)=>setName(e.target.value)}
+          placeholder="Enter the Name of Event"
+         // value={year}
+          name="eventN"
+          onChange={handleChange}
+          value={data4.eventN}
+          required
+
+            //onChange={(e)=>setYear(e.target.value)}
           
         />
         <br />
-        <label htmlFor="fname">Title</label>
+        <label htmlFor="fname">venue</label>
         <br />
         <input
          style={{ width:"500px" }}
           className="input"
           type="text"
-          id="fname"
-          //name="email"
-          placeholder="Enter the title"
-          value={title}
-            onChange={(e)=>setTitle(e.target.value)}
+          
+          placeholder="Enter the Venue"
+          name="venue"
+          onChange={handleChange}
+          value={data4.venue}
+          required
+          //value={title}
+           // onChange={(e)=>setTitle(e.target.value)}
           
         />
         <br />
-        <label htmlFor="lname">Year</label>
+        <label htmlFor="lname">Organized by</label>
         <br />
         <input
          style={{ width:"500px" }}
           className="input"
-          type="number"
+          type="text"
           //id="lname"
           //name="phone"
-          placeholder="enter year of publication"
-          value={year}
-            onChange={(e)=>setYear(e.target.value)}
+          placeholder="organizer's name"
+          name="org"
+          onChange={handleChange}
+          value={data4.org}
+          required
 
           
         />
          <br />
-        <label htmlFor="lname">Impact Factor</label>
+        <label htmlFor="lname">Date of event</label>
         <br />
         <input
           style={{ width:"500px" }}
           className="input"
-          type="number"
+          type="text"
           //id="lname"
           //name="phone"
-          placeholder="enter the impact factor"
-          value={impact}
-            onChange={(e)=>setImpact(e.target.value)}
-          
+          placeholder="MM/DD/YYY"
+          name="date"
+              onChange={handleChange}
+              value={data4.date}
+              required
         />
          <br />
-        <label htmlFor="lname">MITS Affiliated  : </label>
-        
-        
-        <input type="radio" value="yes" name="gender" /> YES
-        <input type="radio" value="no" name="gender" /> NO
-            
-
-       
-         <br />
-        <label htmlFor="lname">Amount</label>
+        <label htmlFor="lname">Time</label>
         <br />
         <input
           style={{ width:"500px" }}
           className="input"
-          type="number"
+          type="text"
           //id="lname"
           //name="phone"
-          placeholder="enter the amount in Rupees"
-          value={amount}
-            onChange={(e)=>setAmount(e.target.value)}
+          placeholder="HH:MM AM/PM"
+          name="time"
+              onChange={handleChange}
+              value={data4.time}
+              required
         />
         
         <br />
-        
         <br />
         <button  onClick={handleSub}>Submit</button>
         <br /><br />
-        <button >Cancel</button>
+        <button onClick={q} >Cancel</button>
       
       </form>
-    </div>
-  </div>
+
+   
+        </div>
+
   )
 }
 
 export default Form4
+
 
