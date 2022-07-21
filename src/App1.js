@@ -13,21 +13,27 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Form3 from './forms/Form3'
 import Form4 from './forms/Form4'
 import Home2 from './components/page/Home2'
+import Home3 from './components/page/Home3'
+import Home4 from './components/page/Home4'
 import Search from './components/page/Search'
 
 
 
 function App1() {
-
+   const user = localStorage.getItem("token");
+   const role = localStorage.getItem("role");
+   console.log("o yea "+localStorage.token)
+  // localStorage.removeItem("token")
   return (
     <Router>
     <NavBar/>
     
       <Routes>
       
-      <Route path="/search" element={<Search />} />
-    <Route path="/home" exact element={<Home2 />} />
-    <Route path="/form-3" element={<Form3 />} />
+     <Route path="/search" element={<Search />} />
+     {user && role==="admin" && <Route path="/home" exact element={<Home2 />} />}
+     {user && role==="faculty" && <Route path="/home" exact element={<Home2/>} />}
+<Route path="/form-3" element={<Form3 />} />
     <Route path="/form-4" element={<Form4/> } />
      <Route path="/sign-in" element={<Login />} />
     <Route path="/sign-up" element={<SignUp />} />

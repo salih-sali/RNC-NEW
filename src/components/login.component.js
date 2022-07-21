@@ -27,13 +27,16 @@ const [data, setData] = useState({ email: "", password: "" })
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
 		try {
 			const url = "http://localhost:8080/api/auth";
 			const { data: res } = await axios.post(url, data);
       // fetch("http://localhost:8080/api/auth")
       // .then(response=>response.json())
-      console.log(data)
-			//localStorage.setItem("token", res.data);
+     // console.log("@@@@@"+res.data.role)
+			localStorage.setItem("token", res.data.token);
+      localStorage.setItem("role", res.data.role);
+      //console.log("11111111111111111:"+localStorage.token)
 			window.location = "/home";
 		} catch (error) {
 			if (

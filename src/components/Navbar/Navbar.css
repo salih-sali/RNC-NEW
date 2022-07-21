@@ -5,24 +5,25 @@
 }
 
 .nba{
-    position: fixed;
+    position:absolute;
     right:20px;
     width:60px;
 }
 
 .nirf{
-    position:fixed;
+    position:absolute;
     right:90px;
     width:50px;
 }
 .ariia{
-    position:fixed;
+    position:absolute;
     padding-top: 50px;
     right:20px;
     width:120px;
 }
 
 .navbar{
+    
     position: fixed;
     top:0;
     width: 100%;
@@ -52,10 +53,11 @@
     font-family:apple;
 }
 
-.rnc{
+ .rnc{
     position:relative;
-    right:30%;
+        /* right:30%; */
+        left:-350px;
     font-size:40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(217, 21, 21);
-}
+} 

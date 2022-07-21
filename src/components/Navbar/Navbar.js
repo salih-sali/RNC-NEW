@@ -20,10 +20,11 @@ import "./Navbar.css"
 
 function NavBar() {
 
-  const user = localStorage.getItem("token");
-
+  // const user = localStorage.getItem("token");
+  // console.log(localStorage.token)
   return (
-    <div className='navbar'> 
+    
+    <div className='navbar'>
     <a href="https://mgmits.ac.in/">
        <img className="logo" src={imh1}></img></a>
        <img className="nba" src="https://mgmits.ac.in/wp-content/themes/muthoot/images/nba.png"></img>
@@ -32,7 +33,11 @@ function NavBar() {
       
        <a href="/sign-in" >
        <h1 className='rnc'>RESEARCH AND CONSULTANCY CELL</h1></a>
-      {/* <Banner/> */}
+       
+       
+         {/* <Banner/>   */}
+       
+      
 </div>
 
 
